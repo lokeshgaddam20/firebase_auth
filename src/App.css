@@ -1,4 +1,14 @@
-.App {
+/* styles.css */
+body {
+  background-color: #1A202C; /* Use your secondary dark background color */
+  color: #E2E8F0; /* Use your text color */
+}
+
+
+
+/* --------- */
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +45,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
