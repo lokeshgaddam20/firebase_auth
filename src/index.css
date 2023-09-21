@@ -2,4 +2,4 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "./styles.css"; /* Include your global styles*/
+@import "./App.css"; /* Include your global styles*/

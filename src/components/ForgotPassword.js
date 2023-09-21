@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { auth } from "../config/firebase";
 
-function ForgotPassword() {
+export default function ForgotPassword() {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -43,4 +43,3 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;

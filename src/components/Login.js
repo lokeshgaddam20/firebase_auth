@@ -2,9 +2,9 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
-import { auth } from "../config/firebase";
+import { auth} from "../config/firebase";
 
-function Login() {
+export default function Login({setLoggedIn}) {
   const history = useHistory();
 
   const formik = useFormik({
@@ -19,8 +19,10 @@ function Login() {
     onSubmit: async (values, { setSubmitting, setFieldError }) => {
       try {
         await auth.signInWithEmailAndPassword(values.email, values.password);
+        setLoggedIn(true);
         history.push("/");
       } catch (error) {
+        console.error("Authentication Error:", error.code, error.message);
         setFieldError("loginError", "Invalid email or password");
         setSubmitting(false);
       }
@@ -32,6 +34,7 @@ function Login() {
     <div className="bg-secondary rounded-lg shadow-md p-6">
       <h2 className="text-2xl font-bold mb-4">Login</h2>
       <form onSubmit={formik.handleSubmit}>
+      <div className="mb-4">
         {/* Email input */}
         <input
           type="email"
@@ -42,6 +45,9 @@ function Login() {
           value={formik.values.email}
           className="bg-primary text-text border rounded-md p-2 mb-4"
         />
+        </div>
+
+        <div className="mb-4">
 
         {/* Password input */}
         <input
@@ -52,7 +58,8 @@ function Login() {
           onBlur={formik.handleBlur}
           value={formik.values.password}
           className="bg-primary text-text border rounded-md p-2 mb-4"
-        />
+          />
+          </div>
 
         {formik.errors.loginError ? (
           <div className="text-red-500 mb-4">{formik.errors.loginError}</div>
@@ -70,5 +77,3 @@ function Login() {
   </div>
   );
 }
-
-export default Login;
