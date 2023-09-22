@@ -13,6 +13,7 @@ export default function Register({ setLoggedIn }) {
       initialValues: {
         email: "",
         password: "",
+        name: ""
       },
       validationSchema: Yup.object({
         email: Yup.string().required("Email is required").email("Invalid email address"),
@@ -41,6 +42,19 @@ export default function Register({ setLoggedIn }) {
         <h2 className="text-2xl font-bold mb-4 text-text">Register</h2>
         <form onSubmit={formik.handleSubmit}>
           {/* Email input */}
+          <div className="mb-4">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Your Name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            className="bg-primary text-text border rounded-md p-2 mb-4"
+            />
+            </div>
+
           <div className="mb-4">
 
           <input
