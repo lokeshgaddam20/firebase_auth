@@ -46,7 +46,7 @@ export default function Register({ setLoggedIn }) {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Enter Email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
@@ -59,7 +59,7 @@ export default function Register({ setLoggedIn }) {
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Enter Password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
